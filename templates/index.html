@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Generation Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Content Generation Assistant</h1>
+            <p>Generate targeted social media campaigns based on your research.</p>
+            <button id="btn-reset-memory" class="btn-secondary">Reset Company Memory</button>
+        </header>
+
+        <main>
+            <section id="step1" class="step">
+                <h2>Step 1: Find Potential Target Companies</h2>
+                <button id="btn-find-companies">Find New Companies</button>
+                <div id="company-list-container" class="hidden">
+                    <label for="company-select">Select a Company:</label>
+                    <select id="company-select"></select>
+                </div>
+            </section>
+
+            <section id="step2b" class="step hidden">
+                <h2>Investigation Results</h2>
+                <div id="spinner-investigate" class="spinner hidden"></div>
+                <p id="investigation-details"></p>
+            </section>
+
+            <section id="step2" class="step hidden">
+                <h2>Step 2: Add Your Own Research Findings</h2>
+                <p>Provide key facts, donation links, and other data you've found about your selected company.</p>
+                <textarea id="research-input" placeholder="Paste your research here..."></textarea>
+            </section>
+
+            <section id="step3" class="step hidden">
+                <h2>Step 3: Define Your Target</h2>
+                <input type="text" id="market-input" placeholder="Enter Target Market (e.g., Germany)">
+                <input type="text" id="language-input" placeholder="Enter Target Language (e.g., German)">
+            </section>
+            
+            <section id="step4" class="step hidden">
+                 <button id="btn-generate-content">Generate Campaign Content</button>
+            </section>
+
+            <section id="results-section" class="hidden">
+                <h2>Generated Content</h2>
+                <div id="spinner-generate" class="spinner hidden"></div>
+                <pre id="results-output"></pre>
+            </section>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
